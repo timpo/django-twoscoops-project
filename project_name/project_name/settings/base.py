@@ -45,7 +45,7 @@ MANAGERS = ADMINS
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
@@ -61,7 +61,8 @@ DATABASES = {
 TIME_ZONE = 'America/Los_Angeles'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de-de'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
@@ -74,7 +75,20 @@ USE_L10N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+# needed everytime
+#DEFAULT_FROM_EMAIL = ''
+
 ########## END GENERAL CONFIGURATION
+
+########## TIME FORMATS
+
+TIME_FORMAT = (
+        '%H:%m',
+        )
+########## TIME FORMATS
+
+
 
 
 ########## MEDIA CONFIGURATION
@@ -243,3 +257,21 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'wsgi.application'
 ########## END WSGI CONFIGURATION
+
+########## LANGUEGES CONFIGURATION
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('de', gettext('German')),
+    #('en', gettext('English')),
+)
+LOCALE_PATHS = (
+     normpath(join(SITE_ROOT, 'locale')),
+)
+########## END LANGUEGES CONFIGURATION
+
+########## USER
+# https://docs.djangoproject.com/en/1.6/topics/auth/customizing/
+#AUTH_USER_MODEL = 'accounts.Account'
+
+
